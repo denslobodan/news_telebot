@@ -40,6 +40,26 @@ func New(
 	}
 }
 
+func (f *Fetcher) Start(ctx context.Context) error {
+	ticker := time.NewTicker(f.fetchInterval)
+	defer ticker.Stop()
+
+	if err := f.Fetch(ctx); err != nil {
+		return err
+	}
+
+	for {
+		select {
+		case <-ctx.Done():
+			return ctx.Err()
+		case <-ticker.C:
+			if err := f.Fetch(ctx); err != nil {
+				return err
+			}
+		}
+	}
+}
+
 type Fetcher struct {
 	arcticles ArticleStorage
 	sources   SourceProvider

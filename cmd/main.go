@@ -1,4 +1,5 @@
-// defer panic: 22:20
+// defer panic: 31:00
+// -> article.go
 
 package main
 

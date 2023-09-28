@@ -14,7 +14,15 @@ type RSSSource struct {
 	SourceName string
 }
 
-func NewRSSSourceDromModel(m model.Source) RSSSource {
+func (s RSSSource) ID() int64 {
+	return s.SourceID
+}
+
+func (s RSSSource) Name() string {
+	return s.SourceName
+}
+
+func NewRSSSourceFromModel(m model.Source) RSSSource {
 	return RSSSource{
 		URL:        m.FeedURL,
 		SourceID:   m.ID,

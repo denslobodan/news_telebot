@@ -1,3 +1,5 @@
+// defer panic: 22:20
+
 package main
 
 import (

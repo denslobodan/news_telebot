@@ -26,5 +26,5 @@ type Article struct {
 	Summary     string
 	PublishedAt time.Time
 	PostedAt    time.Time
-	CreateAt    time.Time
+	CreatedAt   time.Time
 }

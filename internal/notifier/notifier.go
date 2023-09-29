@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
+	"telebot/internal/botkit/markup"
 	"telebot/internal/model"
 	"time"
 
@@ -112,10 +113,9 @@ func (n *Notifier) sendArticle(article model.Article, summary string) error {
 	const msgFormat = "*%s*%s\n\n%s"
 
 	msg := tgbotapi.NewMessage(n.channelID, fmt.Sprintf(
-		msgFormat,
-		article.Title,
-		summary,
-		article.Link,
+		markup.EscapeForMarkdown(article.Title),
+		markup.EscapeForMarkdown(summary),
+		markup.EscapeForMarkdown(article.Link),
 	))
 	msg.ParseMode = tgbotapi.ModeMarkdownV2
 

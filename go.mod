@@ -13,6 +13,7 @@ require (
 
 require (
 	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394 // indirect
+	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1
 	github.com/jmoiron/sqlx v1.3.5
 	github.com/samber/lo v1.38.1
 	github.com/tomakado/containers v0.0.0-20230620211702-4a5ca7fb9fd3
